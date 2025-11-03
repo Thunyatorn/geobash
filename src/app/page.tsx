@@ -18,9 +18,9 @@ $$f=b+(a-b)i$$
 $$g=c+(c-a)i$$
 $$k=\\frac{fg-bc}{f+g-b-c}=a+i\\cdot\\frac{(a-b)(a-c)}{b-c}$$
 $$m=\\frac{b+c}{2}$$
-$$h=\\frac{(1+i)(a^2b-iab^2-a^2c+ib^c-iac^2+ibc^2)}{2(ab-iac-(1-i)bc)}$$
+$$h=\\frac{(1+i)(a^2b-iab^2-a^2c+ib^2c-iac^2+ibc^2)}{2(ab-iac-(1-i)bc)}$$
 It remains to show that
-$$2a+i\\cdot\\frac{2(a-b)(a-c)}{b-c}, b+c, \\frac{(1+i)(a^2b-iab^2-a^2c+ib^c-iac^2+ibc^2)}{2(ab-iac-(1-i)bc)}$$
+$$2a+i\\cdot\\frac{2(a-b)(a-c)}{b-c}, b+c, \\frac{(1+i)(a^2b-iab^2-a^2c+ib^2c-iac^2+ibc^2)}{2(ab-iac-(1-i)bc)}$$
 are collinear.
 `;
 
@@ -32,7 +32,7 @@ are collinear.
 `;
 
 const Equation3 = `We then want to show that
-$$\\frac{(b-c)((b+c)(ab-iac-(1-i)bc)-(1+i)(a^2b-iab^2-a^c+ib^2c-iac^2+ibc^2))}{(b^2-c^2-(2a(b-c)+i\\cdot 2(a-b)(a-c)))(ab-iac-(1-i)bc)}=\\frac{a(b-c)^2((-1-i)a+ib+c)}{((-i+1)a+b-ic)^2)(ab-iac-(1-i)bc)}$$
+$$\\frac{(b-c)((b+c)(ab-iac-(1-i)bc)-(1+i)(a^2b-iab^2-a^c+ib^2c-iac^2+ibc^2))}{(b^2-c^2-(2a(b-c)+i\\cdot 2(a-b)(a-c)))(ab-iac-(1-i)bc)}=\\frac{a(b-c)^2((-1-i)a+ib+c)}{((-i+1)a+b-ic)^2(ab-iac-(1-i)bc)}$$
 is a real but it's self conjugate so the result follows.
 `;
 
@@ -52,7 +52,9 @@ export default async function Home() {
         </ul>
         <h1 className="text-2xl font-bold">Example</h1>
         <h1 className="text-xl font-bold">Input</h1>
-        <Image className="flex items-center" src="/geogebra-export.svg" width={1000} height={1000} alt="skibidi" />
+        <div className="flex w-screen items-center">
+          <Image src="/geogebra-export.svg" width={1000} height={1000} alt="skibidi" />
+        </div>
         <h1 className="text-xl font-bold">Output</h1>
         <KatexSpan
           text={Equation}

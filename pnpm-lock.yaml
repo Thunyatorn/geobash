@@ -16,6 +16,9 @@ dependencies:
   '@trpc/server':
     specifier: ^11.0.0
     version: 11.0.0(typescript@5.8.2)
+  '@types/katex':
+    specifier: ^0.16.7
+    version: 0.16.7
   katex:
     specifier: ^0.16.25
     version: 0.16.25

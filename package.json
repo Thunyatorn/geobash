@@ -21,6 +21,7 @@
     "@trpc/client": "^11.0.0",
     "@trpc/react-query": "^11.0.0",
     "@trpc/server": "^11.0.0",
+    "@types/katex": "^0.16.7",
     "katex": "^0.16.25",
     "next": "^15.2.3",
     "react": "^19.0.0",
