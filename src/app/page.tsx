@@ -5,6 +5,7 @@ import { api, HydrateClient } from "~/trpc/server";
 import Navbar from "./_components/navbar";
 import KatexSpan from "./_components/KatexSpan";
 import Image from "next/image";
+import FileUploadButton from "./_components/FileUploadButton";
 
 const quadraticEquationTest = `Given a general quadratic equation of the form
 $$ax^{2} + bx + c = 0$$
@@ -27,7 +28,7 @@ are collinear.
 const Equation2 = `Clearing denominators, this becomes
 $$(2a(b-c)+i\\cdot2(a-b)(a-c))\\cdot(ab-iac-(1-i)bc),$$
 $$(b+c)(b-c)(ab-iac-(1-i)bc),$$
-$$(1+i)(b-c)(a^2b-iab^2-a^2c+ib^2c-iac^2+ibc^2$$
+$$(1+i)(b-c)(a^2b-iab^2-a^2c+ib^2c-iac^2+ibc^2)$$
 are collinear.
 `;
 
@@ -37,9 +38,9 @@ is a real but it's self conjugate so the result follows.
 `;
 
 export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
+  // const hello = await api.post.hello({ text: "from tRPC" });
 
-  void api.post.getLatest.prefetch();
+  // void api.post.getLatest.prefetch();
 
   return (
     <HydrateClient>
@@ -68,6 +69,9 @@ export default async function Home() {
           text={Equation3}
           className='mx-20 my-20 text-l'
         />
+
+        <FileUploadButton />
+
         {/* <KatexSpan text={"$$$$"} /> */}
       </main>
       {/* <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
