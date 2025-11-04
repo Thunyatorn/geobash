@@ -7,13 +7,14 @@ import KatexSpan from "./_components/KatexSpan";
 import Image from "next/image";
 import FileUploadButton from "./_components/FileUploadButton";
 import CodeBlock from "./_components/Codeblock";
+import Equation from "./_components/Equation";
 
 const quadraticEquationTest = `Given a general quadratic equation of the form
 $$ax^{2} + bx + c = 0$$
 with $x$ representing an unknown, with $a$, $b$ and $c$ representing constants, and with $a \\ne 0$, the quadratic formula is:
 $$x = \\frac{-b \\pm \\sqrt{b^{2} - 4ac}}{2a}$$`;
 
-const Equation = `Given point $a$, $b$, $c$. 
+const Equation1 = `Given point $a$, $b$, $c$. 
 $$d=a+(c-a)i$$
 $$e=a+(a-b)i$$
 $$f=b+(a-b)i$$
@@ -54,28 +55,28 @@ Point('name', 'C')
 
 
 Point('name', 'H')
-('x', 'H_x')
-('y', 'H_y')
+('x', '((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))')
+('y', '((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))')
 
 
 Point('name', 'D')
-('x', '(B_x+H_x+C_x)/3')
-('y', '(B_y+H_y+C_y)/3')
+('x', '(B_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+C_x)/3')
+('y', '(B_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+C_y)/3')
 
 
 Point('name', 'E')
-('x', '(C_x+H_x+A_x)/3')
-('y', '(C_y+H_y+A_y)/3')
+('x', '(C_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+A_x)/3')
+('y', '(C_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+A_y)/3')
 
 
 Point('name', 'F')
-('x', '(A_x+H_x+B_x)/3')
-('y', '(A_y+H_y+B_y)/3')
+('x', '(A_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+B_x)/3')
+('y', '(A_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+B_y)/3')
 
 
 Intersect('name', 'P')
-('x', '((((C_x+H_x+A_x)/3-B_x)*(((B_x+H_x+C_x)/3*A_y)-((B_y+H_y+C_y)/3*A_x)))-((A_x-(B_x+H_x+C_x)/3)*((B_x*(C_y+H_y+A_y)/3)-(B_y*(C_x+H_x+A_x)/3))))/(((B_y-(C_y+H_y+A_y)/3)*(A_x-(B_x+H_x+C_x)/3))-(((B_y+H_y+C_y)/3-A_y)*((C_x+H_x+A_x)/3-B_x)))')
-('y', '((((B_y+H_y+C_y)/3-A_y)*((B_x*(C_y+H_y+A_y)/3)-(B_y*(C_x+H_x+A_x)/3)))-((B_y-(C_y+H_y+A_y)/3)*(((B_x+H_x+C_x)/3*A_y)-((B_y+H_y+C_y)/3*A_x))))/(((B_y-(C_y+H_y+A_y)/3)*(A_x-(B_x+H_x+C_x)/3))-(((B_y+H_y+C_y)/3-A_y)*((C_x+H_x+A_x)/3-B_x)))')
+('x', '((((C_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+A_x)/3-B_x)*(((B_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+C_x)/3*A_y)-((B_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+C_y)/3*A_x)))-((A_x-(B_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+C_x)/3)*((B_x*(C_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+A_y)/3)-(B_y*(C_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+A_x)/3))))/(((B_y-(C_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+A_y)/3)*(A_x-(B_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+C_x)/3))-(((B_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+C_y)/3-A_y)*((C_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+A_x)/3-B_x)))')
+('y', '((((B_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+C_y)/3-A_y)*((B_x*(C_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+A_y)/3)-(B_y*(C_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+A_x)/3)))-((B_y-(C_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+A_y)/3)*(((B_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+C_x)/3*A_y)-((B_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+C_y)/3*A_x))))/(((B_y-(C_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+A_y)/3)*(A_x-(B_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+C_x)/3))-(((B_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+C_y)/3-A_y)*((C_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+A_x)/3-B_x)))')
 
 
 Polygon('name', 't1')
@@ -101,93 +102,93 @@ Line('name', 'b')
 
 
 Line('name', 'f')
-('a', '(B_y-H_y)')
-('b', '(H_x-B_x)')
-('c', '((B_x*H_y)-(B_y*H_x))')
+('a', '(B_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('b', '(((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-B_x)')
+('c', '((B_x*((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))-(B_y*((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))))')
 
 
 Line('name', 'g')
-('a', '(C_y-H_y)')
-('b', '(H_x-C_x)')
-('c', '((C_x*H_y)-(C_y*H_x))')
+('a', '(C_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('b', '(((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-C_x)')
+('c', '((C_x*((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))-(C_y*((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))))')
 
 
 Line('name', 'h')
-('a', '(A_y-H_y)')
-('b', '(H_x-A_x)')
-('c', '((A_x*H_y)-(A_y*H_x))')
+('a', '(A_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('b', '(((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-A_x)')
+('c', '((A_x*((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))-(A_y*((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))))')
 
 
 OrthogonalLine('name', 'i')
-('a', '(H_x-C_x)')
-('b', '-(C_y-H_y)')
-('c', '(((C_y-H_y)*B_y)-((H_x-C_x)*B_x))')
+('a', '(((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-C_x)')
+('b', '-(C_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('c', '(((C_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))*B_y)-((((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-C_x)*B_x))')
 
 
 OrthogonalLine('name', 'j')
-('a', '(H_x-A_x)')
-('b', '-(A_y-H_y)')
-('c', '(((A_y-H_y)*B_y)-((H_x-A_x)*B_x))')
+('a', '(((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-A_x)')
+('b', '-(A_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('c', '(((A_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))*B_y)-((((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-A_x)*B_x))')
 
 
 OrthogonalLine('name', 'k')
-('a', '(H_x-A_x)')
-('b', '-(A_y-H_y)')
-('c', '(((A_y-H_y)*C_y)-((H_x-A_x)*C_x))')
+('a', '(((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-A_x)')
+('b', '-(A_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('c', '(((A_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))*C_y)-((((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-A_x)*C_x))')
 
 
 OrthogonalLine('name', 'l')
-('a', '(H_x-B_x)')
-('b', '-(B_y-H_y)')
-('c', '(((B_y-H_y)*C_y)-((H_x-B_x)*C_x))')
+('a', '(((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-B_x)')
+('b', '-(B_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('c', '(((B_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))*C_y)-((((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-B_x)*C_x))')
 
 
 OrthogonalLine('name', 'm')
-('a', '(H_x-C_x)')
-('b', '-(C_y-H_y)')
-('c', '(((C_y-H_y)*A_y)-((H_x-C_x)*A_x))')
+('a', '(((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-C_x)')
+('b', '-(C_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('c', '(((C_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))*A_y)-((((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-C_x)*A_x))')
 
 
 OrthogonalLine('name', 'n')
-('a', '(H_x-B_x)')
-('b', '-(B_y-H_y)')
-('c', '(((B_y-H_y)*A_y)-((H_x-B_x)*A_x))')
+('a', '(((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-B_x)')
+('b', '-(B_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('c', '(((B_y-((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C)))*A_y)-((((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))-B_x)*A_x))')
 
 
 Line('name', 's')
-('a', '(H_y-B_y)')
-('b', '(B_x-H_x)')
-('c', '((H_x*B_y)-(H_y*B_x))')
+('a', '(((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))-B_y)')
+('b', '(B_x-((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('c', '((((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))*B_y)-(((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))*B_x))')
 
 
 Line('name', 't')
-('a', '(H_y-A_y)')
-('b', '(A_x-H_x)')
-('c', '((H_x*A_y)-(H_y*A_x))')
+('a', '(((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))-A_y)')
+('b', '(A_x-((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('c', '((((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))*A_y)-(((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))*A_x))')
 
 
 Line('name', 'd')
-('a', '(H_y-C_y)')
-('b', '(C_x-H_x)')
-('c', '((H_x*C_y)-(H_y*C_x))')
+('a', '(((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))-C_y)')
+('b', '(C_x-((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C)))')
+('c', '((((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))*C_y)-(((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))*C_x))')
 
 
 Line('name', 'p')
-('a', '((B_y+H_y+C_y)/3-A_y)')
-('b', '(A_x-(B_x+H_x+C_x)/3)')
-('c', '(((B_x+H_x+C_x)/3*A_y)-((B_y+H_y+C_y)/3*A_x))')
+('a', '((B_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+C_y)/3-A_y)')
+('b', '(A_x-(B_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+C_x)/3)')
+('c', '(((B_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+C_x)/3*A_y)-((B_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+C_y)/3*A_x))')
 
 
 Line('name', 'q')
-('a', '(B_y-(C_y+H_y+A_y)/3)')
-('b', '((C_x+H_x+A_x)/3-B_x)')
-('c', '((B_x*(C_y+H_y+A_y)/3)-(B_y*(C_x+H_x+A_x)/3))')
+('a', '(B_y-(C_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+A_y)/3)')
+('b', '((C_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+A_x)/3-B_x)')
+('c', '((B_x*(C_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+A_y)/3)-(B_y*(C_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+A_x)/3))')
 
 
 Line('name', 'r')
-('a', '(C_y-(A_y+H_y+B_y)/3)')
-('b', '((A_x+H_x+B_x)/3-C_x)')
-('c', '((C_x*(A_y+H_y+B_y)/3)-(C_y*(A_x+H_x+B_x)/3))')`;
+('a', '(C_y-(A_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+B_y)/3)')
+('b', '((A_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+B_x)/3-C_x)')
+('c', '((C_x*(A_y+((A_y*tan(A))+(B_y*tan(B))+(C_y*tan(C)))/(tan(A)+tan(B)+tan(C))+B_y)/3)-(C_y*(A_x+((A_x*tan(A))+(B_x*tan(B))+(C_x*tan(C)))/(tan(A)+tan(B)+tan(C))+B_x)/3))')`;
 
 export default async function Home() {
   // const hello = await api.post.hello({ text: "from tRPC" });
@@ -230,7 +231,7 @@ export default async function Home() {
         </div>
         <h1 className="text-xl font-bold">Sample Solution by typical contestant in mathematics olympiad competition</h1>
         <KatexSpan
-          text={Equation}
+          text={Equation1}
           className='mx-20 my-20 text-l'
         />
         <KatexSpan
