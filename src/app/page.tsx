@@ -6,6 +6,7 @@ import Navbar from "./_components/navbar";
 import KatexSpan from "./_components/KatexSpan";
 import Image from "next/image";
 import FileUploadButton from "./_components/FileUploadButton";
+import CodeBlock from "./_components/Codeblock";
 
 const quadraticEquationTest = `Given a general quadratic equation of the form
 $$ax^{2} + bx + c = 0$$
@@ -37,6 +38,157 @@ $$\\frac{(b-c)((b+c)(ab-iac-(1-i)bc)-(1+i)(a^2b-iab^2-a^c+ib^2c-iac^2+ibc^2))}{(
 is a real but it's self conjugate so the result follows.
 `;
 
+const Code = `Point('name', 'A')
+('x', 'A_x')
+('y', 'A_y')
+
+
+Point('name', 'B')
+('x', 'B_x')
+('y', 'B_y')
+
+
+Point('name', 'C')
+('x', 'C_x')
+('y', 'C_y')
+
+
+Point('name', 'H')
+('x', 'H_x')
+('y', 'H_y')
+
+
+Point('name', 'D')
+('x', '(B_x+H_x+C_x)/3')
+('y', '(B_y+H_y+C_y)/3')
+
+
+Point('name', 'E')
+('x', '(C_x+H_x+A_x)/3')
+('y', '(C_y+H_y+A_y)/3')
+
+
+Point('name', 'F')
+('x', '(A_x+H_x+B_x)/3')
+('y', '(A_y+H_y+B_y)/3')
+
+
+Intersect('name', 'P')
+('x', '((((C_x+H_x+A_x)/3-B_x)*(((B_x+H_x+C_x)/3*A_y)-((B_y+H_y+C_y)/3*A_x)))-((A_x-(B_x+H_x+C_x)/3)*((B_x*(C_y+H_y+A_y)/3)-(B_y*(C_x+H_x+A_x)/3))))/(((B_y-(C_y+H_y+A_y)/3)*(A_x-(B_x+H_x+C_x)/3))-(((B_y+H_y+C_y)/3-A_y)*((C_x+H_x+A_x)/3-B_x)))')
+('y', '((((B_y+H_y+C_y)/3-A_y)*((B_x*(C_y+H_y+A_y)/3)-(B_y*(C_x+H_x+A_x)/3)))-((B_y-(C_y+H_y+A_y)/3)*(((B_x+H_x+C_x)/3*A_y)-((B_y+H_y+C_y)/3*A_x))))/(((B_y-(C_y+H_y+A_y)/3)*(A_x-(B_x+H_x+C_x)/3))-(((B_y+H_y+C_y)/3-A_y)*((C_x+H_x+A_x)/3-B_x)))')
+
+
+Polygon('name', 't1')
+('p', ['A', 'B', 'C'])
+
+
+Line('name', 'c')
+('a', '(A_y-B_y)')
+('b', '(B_x-A_x)')
+('c', '((A_x*B_y)-(A_y*B_x))')
+
+
+Line('name', 'a')
+('a', '(B_y-C_y)')
+('b', '(C_x-B_x)')
+('c', '((B_x*C_y)-(B_y*C_x))')
+
+
+Line('name', 'b')
+('a', '(C_y-A_y)')
+('b', '(A_x-C_x)')
+('c', '((C_x*A_y)-(C_y*A_x))')
+
+
+Line('name', 'f')
+('a', '(B_y-H_y)')
+('b', '(H_x-B_x)')
+('c', '((B_x*H_y)-(B_y*H_x))')
+
+
+Line('name', 'g')
+('a', '(C_y-H_y)')
+('b', '(H_x-C_x)')
+('c', '((C_x*H_y)-(C_y*H_x))')
+
+
+Line('name', 'h')
+('a', '(A_y-H_y)')
+('b', '(H_x-A_x)')
+('c', '((A_x*H_y)-(A_y*H_x))')
+
+
+OrthogonalLine('name', 'i')
+('a', '(H_x-C_x)')
+('b', '-(C_y-H_y)')
+('c', '(((C_y-H_y)*B_y)-((H_x-C_x)*B_x))')
+
+
+OrthogonalLine('name', 'j')
+('a', '(H_x-A_x)')
+('b', '-(A_y-H_y)')
+('c', '(((A_y-H_y)*B_y)-((H_x-A_x)*B_x))')
+
+
+OrthogonalLine('name', 'k')
+('a', '(H_x-A_x)')
+('b', '-(A_y-H_y)')
+('c', '(((A_y-H_y)*C_y)-((H_x-A_x)*C_x))')
+
+
+OrthogonalLine('name', 'l')
+('a', '(H_x-B_x)')
+('b', '-(B_y-H_y)')
+('c', '(((B_y-H_y)*C_y)-((H_x-B_x)*C_x))')
+
+
+OrthogonalLine('name', 'm')
+('a', '(H_x-C_x)')
+('b', '-(C_y-H_y)')
+('c', '(((C_y-H_y)*A_y)-((H_x-C_x)*A_x))')
+
+
+OrthogonalLine('name', 'n')
+('a', '(H_x-B_x)')
+('b', '-(B_y-H_y)')
+('c', '(((B_y-H_y)*A_y)-((H_x-B_x)*A_x))')
+
+
+Line('name', 's')
+('a', '(H_y-B_y)')
+('b', '(B_x-H_x)')
+('c', '((H_x*B_y)-(H_y*B_x))')
+
+
+Line('name', 't')
+('a', '(H_y-A_y)')
+('b', '(A_x-H_x)')
+('c', '((H_x*A_y)-(H_y*A_x))')
+
+
+Line('name', 'd')
+('a', '(H_y-C_y)')
+('b', '(C_x-H_x)')
+('c', '((H_x*C_y)-(H_y*C_x))')
+
+
+Line('name', 'p')
+('a', '((B_y+H_y+C_y)/3-A_y)')
+('b', '(A_x-(B_x+H_x+C_x)/3)')
+('c', '(((B_x+H_x+C_x)/3*A_y)-((B_y+H_y+C_y)/3*A_x))')
+
+
+Line('name', 'q')
+('a', '(B_y-(C_y+H_y+A_y)/3)')
+('b', '((C_x+H_x+A_x)/3-B_x)')
+('c', '((B_x*(C_y+H_y+A_y)/3)-(B_y*(C_x+H_x+A_x)/3))')
+
+
+Line('name', 'r')
+('a', '(C_y-(A_y+H_y+B_y)/3)')
+('b', '((A_x+H_x+B_x)/3-C_x)')
+('c', '((C_x*(A_y+H_y+B_y)/3)-(C_y*(A_x+H_x+B_x)/3))')`;
+
 export default async function Home() {
   // const hello = await api.post.hello({ text: "from tRPC" });
 
@@ -62,13 +214,21 @@ export default async function Home() {
         {/* <ul className="">
           <li>Input: the GeoGebra file (.ggb)</li>
           <li>Output: Equation of bashing form expressed using LaTeX </li>
-        </ul> */}
+          </ul> */}
         <h1 className="text-2xl font-bold">Example</h1>
-        <h1 className="text-xl font-bold">Input</h1>
+        <h1 className="text-xl font-bold">Sample Input</h1>
+        <div className="flex w-screen items-center">
+          <Image src="/geogebra-export (1).svg" width={1000} height={1000} alt="skibidi" />
+        </div>
+        <h1 className="text-xl font-bold">Sample Output (Without formatting with LaTeX)</h1>
+        <div className="min-w-screen">
+          <CodeBlock  code={Code} />
+        </div>
+        <h1 className="text-xl font-bold">Sample Figure</h1>
         <div className="flex w-screen items-center">
           <Image src="/geogebra-export.svg" width={1000} height={1000} alt="skibidi" />
         </div>
-        <h1 className="text-xl font-bold">Output</h1>
+        <h1 className="text-xl font-bold">Sample Solution by typical contestant in mathematics olympiad competition</h1>
         <KatexSpan
           text={Equation}
           className='mx-20 my-20 text-l'
@@ -89,6 +249,7 @@ export default async function Home() {
         <div className="flex justify-center text-sm">
           Developed by Puntre & Thun
         </div>
+
 
         {/* <KatexSpan text={"$$$$"} /> */}
       </main>
