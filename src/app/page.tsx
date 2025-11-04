@@ -46,11 +46,23 @@ export default async function Home() {
     <HydrateClient>
       <main className="flex w-screen min-h-screen flex-col m-5 gap-y-4">
         <h1 className="text-3xl font-bold">GeoBash</h1>
-        <p className="">This online tool is a diagram-to-coordinates manipulation application compiled with a GeoGebra file (.ggb) and converted in the form of a bashing equation.</p>
+        <p className="">This online tool is a diagram-to-coordinates manipulation software. Given Geogebra file (.ggb), the software will output cartesian and complex coordinates of point in the diagram.</p>
+        <h2 className="text-2xl font-bold">Features</h2>
         <ul className="">
+          <li><b>Auto-detect points and objects</b> in a `.ggb` file (independent & dependent)</li>
+          <li><b>Dual output:</b> Cartesian (x,y) and complex z=x+iy</li>
+          <li><b>Respect diagram visibility:</b> skip hidden points (configurable)</li>
+          <li><b>Names preserved:</b> labels like `A, B, C, H, O, ...` carried through</li>
+        </ul>
+        <h2 className="text-2xl font-bold">Upcoming features</h2>
+        <ul className="">
+          <li><b>Batch mode:</b> process many `.ggb` files at once</li>
+          <li>Select primary points--points</li>
+        </ul>
+        {/* <ul className="">
           <li>Input: the GeoGebra file (.ggb)</li>
           <li>Output: Equation of bashing form expressed using LaTeX </li>
-        </ul>
+        </ul> */}
         <h1 className="text-2xl font-bold">Example</h1>
         <h1 className="text-xl font-bold">Input</h1>
         <div className="flex w-screen items-center">
@@ -70,7 +82,13 @@ export default async function Home() {
           className='mx-20 my-20 text-l'
         />
 
+        <p className="flex justify-center text-red-500">The upload button and LaTeX format are currently not available due to the web migration problem. However, you can download the source code of the program from <a href="/geogebra.py" className="text-blue-900">this link</a></p>
+
         <FileUploadButton />
+
+        <div className="flex justify-center text-sm">
+          Developed by Puntre & Thun
+        </div>
 
         {/* <KatexSpan text={"$$$$"} /> */}
       </main>
